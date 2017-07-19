@@ -26,11 +26,18 @@ public class PrimeServiceTest {
 	}
 	
 	@Test
-	public void testFirstNotPrimeNumbers() {
+	public void testFirstNonPrimeNumbers() {
+		assertFalse(primeService.isPrime(1));
 		assertFalse(primeService.isPrime(4));
 		assertFalse(primeService.isPrime(6));
 		assertFalse(primeService.isPrime(8));
 		assertFalse(primeService.isPrime(10));
+	}
+	
+	@Test(expected=Exception.class)
+	public void testExceptionIsThrownForNegativeNumbers(){
+		primeService.isPrime(-1);
+		primeService.isPrime(Integer.MIN_VALUE);
 	}
 	
 	@Test(timeout=100)
