@@ -20,7 +20,6 @@ public class PrimeServiceTest {
 
 	@Test
 	public void testFirstPrimeNumbers() {
-		assertTrue(primeService.isPrime(1));
 		assertTrue(primeService.isPrime(2));
 		assertTrue(primeService.isPrime(5));
 		assertTrue(primeService.isPrime(7));
@@ -34,9 +33,9 @@ public class PrimeServiceTest {
 		assertFalse(primeService.isPrime(10));
 	}
 	
-	@Test(timeout=1000)
-	public void testBigNonPrimeNumber() {
-		assertFalse(primeService.isPrime(2147483647));
+	@Test(timeout=100)
+	public void testBigPrimeNumberCalculationIsOptimized() {
+		assertTrue(primeService.isPrime(Integer.MAX_VALUE));
 	}
 
 }
